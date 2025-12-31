@@ -1,0 +1,32 @@
+{
+  "name": "technical-test",
+  "version": "1.0.0",
+  "description": "RESTful API for technical assessment.",
+  "homepage": "https://github.com/ZennonGihub/technical-test#readme",
+  "bugs": {
+    "url": "https://github.com/ZennonGihub/technical-test/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZennonGihub/technical-test.git"
+  },
+  "license": "ISC",
+  "author": "Diego Araya",
+  "type": "module",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "joi": "^18.0.2",
+    "jsonwebtoken": "^9.0.3",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "prisma": "^7.2.0"
+  }
+}
