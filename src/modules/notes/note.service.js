@@ -12,9 +12,31 @@ export class NotesService {
   }
 
   async findAll(userId) {
+    const id = parseInt(userId);
+
     const notes = await prisma.note.findMany({
       where: {
-        ownerId: userId,
+        OR: [
+          // Caso A: Soy el dueño
+          { ownerId: parseInt(id) },
+
+          // Caso B: Soy colaborador (Mágia de Prisma ✨)
+          {
+            collaborators: {
+              some: {
+                userId: parseInt(id), // "Donde ALGUNO de los colaboradores sea YO"
+              },
+            },
+          },
+        ],
+      },
+      include: {
+        owner: { select: { username: true } }, // Para saber de quién es la nota compartida
+        collaborators: {
+          // Opcional: Para saber mi permiso en esa nota
+          where: { userId: id },
+          include: { permissionLevel: true },
+        },
       },
       orderBy: {
         createdAt: "desc",
