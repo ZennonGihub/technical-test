@@ -1,0 +1,82 @@
+// 1. Configuración Base
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique @db.VarChar(50)
+  createdAt DateTime @default(now()) @map("created_at")
+  auth           Auth?
+  ownedNotes     Note[]             @relation("NoteOwner")
+  collaborations NoteCollaborator[]
+  @@map("users")
+}
+
+
+model Auth {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique @db.VarChar(100)
+  passwordHash String   @map("password_hash") 
+  phone        String?  @db.VarChar(20)
+  updatedAt    DateTime @updatedAt @map("updated_at")
+  userId Int  @unique @map("user_id")
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  history AuthHistory[]
+
+  @@map("auth")
+}
+
+model AuthHistory {
+  id              Int      @id @default(autoincrement())
+  changeType      String   @map("change_type") @db.VarChar(50)
+  oldEmail        String?  @map("old_email")
+  oldPhone        String?  @map("old_phone")
+  oldPasswordHash String?  @map("old_password_hash")
+  changedAt       DateTime @default(now()) @map("changed_at")
+  authId Int  @map("auth_id")
+  auth   Auth @relation(fields: [authId], references: [id], onDelete: Cascade)
+
+  @@map("auth_history")
+}
+
+
+model Note {
+  id         Int      @id @default(autoincrement())
+  title      String   @db.VarChar(200)
+  content    String?  @db.Text
+  isArchived Boolean  @default(false) @map("is_archived")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  ownerId    Int      @map("owner_id")
+  owner      User     @relation("NoteOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  collaborators NoteCollaborator[]
+  @@map("notes")
+}
+
+model PermissionLevel {
+  id   Int    @id @default(autoincrement())
+  name String @unique @db.VarChar(50) 
+  collaborators NoteCollaborator[]
+
+  @@map("permission_levels")
+}
+
+model NoteCollaborator {
+  id        Int      @id @default(autoincrement())
+  invitedAt DateTime @default(now()) @map("invited_at")
+  noteId Int  @map("note_id")
+  note   Note @relation(fields: [noteId], references: [id], onDelete: Cascade)
+  userId Int  @map("user_id")
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  permissionLevelId Int             @map("id_permission_level")
+  permissionLevel   PermissionLevel @relation(fields: [permissionLevelId], references: [id])
+
+  @@unique([noteId, userId])
+  @@map("note_collaborators")
+}
