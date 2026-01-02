@@ -18,7 +18,7 @@
     "seed": "node prisma/seeders/seed.js"
   },
   "scripts": {
-    "start": "node --watch api/index.js",
+    "start": "node api/index.js",
     "build": "npx prisma generate && npx prisma migrate deploy",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
