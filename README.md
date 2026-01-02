@@ -74,9 +74,14 @@ Se incluyo una coleccion de insomnia el cual se llama "InsomniaCollection" para 
 **Uso:**
 
 -Abra insomnia
+
 -Seleccione el boton de "import"
+
 -Seleccione file, y cargue el archivo mencionado anteriormente
+
 -Esto importara todos los endpoints necesarios para poder probar la api
--Ahora debe de seleccionar el entorno, como la api esta desplegada, esta el entorno local, y el deploy para probar.
+
+-Ahora debe de seleccionar el entorno, como la api esta desplegada, esta el entorno local, y el deploy
+para probar la api desplegada.
 
 Ahora solo queda seguir los pasos anteriores para configurar y levantar el proyecto.
