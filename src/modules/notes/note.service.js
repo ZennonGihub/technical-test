@@ -13,7 +13,7 @@ export class NotesService {
 
   async findAll(userId, filters = {}) {
     const id = parseInt(userId);
-    const { search, isArchived } = filters; // Extraemos los filtros
+    const { search, isArchived } = filters;
 
     // Construimos nuestra cláusula WHERE
     const whereClause = {
@@ -25,8 +25,8 @@ export class NotesService {
       ],
     };
 
-    // FILTRO DE ARCHIVADO
-    // Si filters.isArchived viene definido (true o false), lo agregamos.
+    // Filtro del archivo
+    // Si filters.isArchived viene definido, lo agregamos.
     // Si es undefined, Prisma traerá a ambos
     if (isArchived !== undefined) {
       whereClause.AND.push({
@@ -34,12 +34,11 @@ export class NotesService {
       });
     }
 
-    // 3. FILTRO DE BÚSQUEDA (Opcional)
     // Buscamos en Title O en Content
     if (search) {
       whereClause.AND.push({
         OR: [
-          { title: { contains: search, mode: "insensitive" } }, // insensitive = ignora mayúsculas
+          { title: { contains: search, mode: "insensitive" } },
           { content: { contains: search, mode: "insensitive" } },
         ],
       });
@@ -64,7 +63,6 @@ export class NotesService {
     // Buscamos la nota
     const note = await this.findNote(userId, noteId);
 
-    // Invertimos el valor actual
     const updatedNote = await prisma.note.update({
       where: { id: parseInt(noteId) },
       data: {
