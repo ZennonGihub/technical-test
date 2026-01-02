@@ -18,22 +18,27 @@
     "seed": "node prisma/seeders/seed.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch src/index.js"
+    "start": "node --watch src/index.js",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@hapi/boom": "^10.0.1",
     "@prisma/client": "^5.22.0",
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "joi": "^18.0.2",
     "jsonwebtoken": "^9.0.3",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "supertest": "^7.1.4",
+    "vitest": "^4.0.16"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.16",
     "prisma": "^5.22.0"
   }
 }

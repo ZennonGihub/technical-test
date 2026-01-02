@@ -7,11 +7,13 @@ export async function createAccessToken(user) {
     username: user.username,
   };
 
-  const token = jwt.sign(payload, config.secret, {
+  console.log(process.env.JWT_SECRET);
+
+  const token = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: "15m",
   });
 
-  const refreshToken = jwt.sign(payload, config.secret, {
+  const refreshToken = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: "1d",
   });
 
@@ -19,12 +21,12 @@ export async function createAccessToken(user) {
 }
 
 export async function refreshToken(token) {
-  const verify = jwt.verify(token, config.secret);
+  const verify = jwt.verify(token, process.env.JWT_SECRET);
   const payload = {
     id: decoded.id,
     username: decoded.username,
   };
-  const newToken = jwt.sign(payload, config.secret, {
+  const newToken = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: "15m",
   });
 
