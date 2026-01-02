@@ -1,0 +1,498 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: technical-test
+meta:
+  id: wrk_f7011223e48442dd8909dca4ee5dd530
+  created: 1767288809839
+  modified: 1767288809839
+  description: ""
+collection:
+  - name: Users
+    meta:
+      id: fld_1974eb11fa1740779d8fb33a5cc3dd8a
+      created: 1767288815847
+      modified: 1767288815847
+      sortKey: -1767288815847
+      description: ""
+    children:
+      - url: http://localhost:3000/api/v1/users/lista
+        name: Lista Usuarios
+        meta:
+          id: req_3e2f04a0263847879275b43c584accb4
+          created: 1767291116735
+          modified: 1767385367818
+          isPrivate: false
+          description: ""
+          sortKey: -1767292842498
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Auth
+    meta:
+      id: fld_d67ffadd25a74794bcd04fc3b3eb3fa5
+      created: 1767288820495
+      modified: 1767288820495
+      sortKey: -1767288820495
+      description: ""
+    children:
+      - url: http://localhost:3000/api/v1/auth/register
+        name: Register
+        meta:
+          id: req_1956ff1e1c6146fa95850fa4348fa235
+          created: 1767288828604
+          modified: 1767385901891
+          isPrivate: false
+          description: ""
+          sortKey: -1767291100028
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"username": "Zennon",
+            	"email": "Zennon@email.com",
+            	"password": "123456",
+            	"phone": "5699125230"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/auth/login
+        name: Login
+        meta:
+          id: req_8f10a772d85149bcb9e587f8c9233bed
+          created: 1767288849787
+          modified: 1767385669622
+          isPrivate: false
+          description: ""
+          sortKey: -1767291099928
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "Sennon@email.com",
+            	"password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWF0IjoxNzY3Mzg1NjYwLCJleHAiOjE3Njc0NzIwNjB9.4Ztg-M3BNmnWtmS-wQwdwR6S_LaoZBr_5e1By3DpmoE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/auth/remove/8
+        name: Delete
+        meta:
+          id: req_6000fe6a2b98453c81c702fe4825c94d
+          created: 1767288853897
+          modified: 1767385602530
+          isPrivate: false
+          description: ""
+          sortKey: -1767291100128
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU0NjQsImV4cCI6MTc2NzQ3MTg2NH0.SnJ_MaNqd7nrvobhtQ18USGvjqxGZMeosgqBdE3gtXA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/auth/update
+        name: Update
+        meta:
+          id: req_c1e449ab10334e00a92cb2c6e9c8c987
+          created: 1767288857056
+          modified: 1767385476603
+          isPrivate: false
+          description: ""
+          sortKey: -1767291099828
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"username": "SENNON"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU0NjQsImV4cCI6MTc2NzQ3MTg2NH0.SnJ_MaNqd7nrvobhtQ18USGvjqxGZMeosgqBdE3gtXA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Notes
+    meta:
+      id: fld_edec36ffb6eb41968fd01d6275a8c80f
+      created: 1767288826021
+      modified: 1767288826021
+      sortKey: -1767288826021
+      description: ""
+    children:
+      - url: http://localhost:3000/api/v1/notes/
+        name: Find Notes
+        meta:
+          id: req_d4d0df5ff44947a0bb295406b84f44c6
+          created: 1767292847089
+          modified: 1767385694464
+          isPrivate: false
+          description: ""
+          sortKey: -1767293411175
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU2NzAsImV4cCI6MTc2NzQ3MjA3MH0.hi8i-9mDoQBh-CG4Ws9GgGLK8YKaxWLo_YIPLuUZf4Y
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/notes/
+        name: Create
+        meta:
+          id: req_55fc8ad3fd9a48958f261bfac9e230d2
+          created: 1767293048103
+          modified: 1767385760675
+          isPrivate: false
+          description: ""
+          sortKey: -1767293411275
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"title": "Nota de prueba 6",
+            	"content": "Tengo"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU2NzAsImV4cCI6MTc2NzQ3MjA3MH0.hi8i-9mDoQBh-CG4Ws9GgGLK8YKaxWLo_YIPLuUZf4Y
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/notes/7
+        name: Find Note
+        meta:
+          id: req_91b0b3819c064643be031c0be23bde49
+          created: 1767294752648
+          modified: 1767385705740
+          isPrivate: false
+          description: ""
+          sortKey: -1767293411375
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU2NzAsImV4cCI6MTc2NzQ3MjA3MH0.hi8i-9mDoQBh-CG4Ws9GgGLK8YKaxWLo_YIPLuUZf4Y
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/notes/7
+        name: Update
+        meta:
+          id: req_a39379e95d744330971e7b4236bb20b6
+          created: 1767295135517
+          modified: 1767385718261
+          isPrivate: false
+          description: ""
+          sortKey: -1767293411475
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"title": "quinta nota",
+            	"content": "mentira"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU2NzAsImV4cCI6MTc2NzQ3MjA3MH0.hi8i-9mDoQBh-CG4Ws9GgGLK8YKaxWLo_YIPLuUZf4Y
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/notes/7
+        name: Delete
+        meta:
+          id: req_3a0c5ccb654e42d1b346fa31adc72a2a
+          created: 1767295156279
+          modified: 1767385727237
+          isPrivate: false
+          description: ""
+          sortKey: -1767293411575
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU2NzAsImV4cCI6MTc2NzQ3MjA3MH0.hi8i-9mDoQBh-CG4Ws9GgGLK8YKaxWLo_YIPLuUZf4Y
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/notes/8/archive/
+        name: Update archive
+        meta:
+          id: req_46696fd66ade49518be63cc875443e08
+          created: 1767365354410
+          modified: 1767385794445
+          isPrivate: false
+          description: ""
+          sortKey: -1767293411875
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU2NzAsImV4cCI6MTc2NzQ3MjA3MH0.hi8i-9mDoQBh-CG4Ws9GgGLK8YKaxWLo_YIPLuUZf4Y
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/notes?isArchived=true
+        name: Find Notes
+        meta:
+          id: req_338dc61912474b2f9bb44b0b9249c21c
+          created: 1767365509850
+          modified: 1767385733472
+          isPrivate: false
+          description: ""
+          sortKey: -1767293411675
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU2NzAsImV4cCI6MTc2NzQ3MjA3MH0.hi8i-9mDoQBh-CG4Ws9GgGLK8YKaxWLo_YIPLuUZf4Y
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/notes?search=prueba
+        name: Find Notes
+        meta:
+          id: req_e97caea849de49bdb94ca347ec8d60ad
+          created: 1767365598778
+          modified: 1767385740588
+          isPrivate: false
+          description: ""
+          sortKey: -1767293411775
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU2NzAsImV4cCI6MTc2NzQ3MjA3MH0.hi8i-9mDoQBh-CG4Ws9GgGLK8YKaxWLo_YIPLuUZf4Y
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Collaborators
+    meta:
+      id: fld_51f614c663a648cfbfddf8cd02e1d5ba
+      created: 1767365198671
+      modified: 1767365198671
+      sortKey: -1767365198671
+      description: ""
+    children:
+      - url: http://localhost:3000/api/v1/collaboration/notes/8
+        name: Add Collaborator
+        meta:
+          id: req_9f0d5bf994a640b983e4a06274aea0ba
+          created: 1767307354365
+          modified: 1767385908828
+          isPrivate: false
+          description: ""
+          sortKey: -1767365204413
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "Zennon@email.com",
+              "permission": "VIEWER"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODU2NzAsImV4cCI6MTc2NzQ3MjA3MH0.hi8i-9mDoQBh-CG4Ws9GgGLK8YKaxWLo_YIPLuUZf4Y
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/v1/collaboration/notes/8/user/10
+        name: Remove collaborator
+        meta:
+          id: req_8881dbde635d4a36852e9f05eeca4abb
+          created: 1767308010195
+          modified: 1767386022043
+          isPrivate: false
+          description: ""
+          sortKey: -1767365204513
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: '{ "permission": "EDITOR" }'
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJTZW5ub24iLCJpYXQiOjE3NjczODYwMTUsImV4cCI6MTc2NzQ3MjQxNX0.f3cy-YVLnRav3IbEE1qXfSodnlzt-8o37UdN9t0qPxI
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_2e838fc29b55de37d49806bacb7175b2cfc4c985
+    created: 1767288809844
+    modified: 1767288809844
+environments:
+  name: Base Environment
+  meta:
+    id: env_2e838fc29b55de37d49806bacb7175b2cfc4c985
+    created: 1767288809842
+    modified: 1767288809842
+    isPrivate: false
