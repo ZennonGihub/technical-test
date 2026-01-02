@@ -1,4 +1,11 @@
-import { findAll, create, remove, update, findOne } from "./note.controller.js";
+import {
+  findAll,
+  create,
+  remove,
+  update,
+  findOne,
+  toggleArchive,
+} from "./note.controller.js";
 import express from "express";
 import passport from "../../utils/index.passport.js";
 
@@ -9,6 +16,8 @@ router.use(passport.authenticate("jwt", { session: false }));
 router.post("/", create);
 
 router.get("/", findAll);
+
+router.patch("/:id/archive", toggleArchive);
 
 router.get("/:id", findOne);
 

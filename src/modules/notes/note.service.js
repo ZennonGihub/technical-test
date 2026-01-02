@@ -11,39 +11,73 @@ export class NotesService {
     return note;
   }
 
-  async findAll(userId) {
+  async findAll(userId, filters = {}) {
     const id = parseInt(userId);
+    const { search, isArchived } = filters; // Extraemos los filtros
+
+    // Construimos nuestra cláusula WHERE
+    const whereClause = {
+      AND: [
+        // Corroboramos si es el dueño
+        {
+          OR: [{ ownerId: id }, { collaborators: { some: { userId: id } } }],
+        },
+      ],
+    };
+
+    // FILTRO DE ARCHIVADO
+    // Si filters.isArchived viene definido (true o false), lo agregamos.
+    // Si es undefined, Prisma traerá a ambos
+    if (isArchived !== undefined) {
+      whereClause.AND.push({
+        isArchived: isArchived,
+      });
+    }
+
+    // 3. FILTRO DE BÚSQUEDA (Opcional)
+    // Buscamos en Title O en Content
+    if (search) {
+      whereClause.AND.push({
+        OR: [
+          { title: { contains: search, mode: "insensitive" } }, // insensitive = ignora mayúsculas
+          { content: { contains: search, mode: "insensitive" } },
+        ],
+      });
+    }
 
     const notes = await prisma.note.findMany({
-      where: {
-        OR: [
-          // Caso A: Soy el dueño
-          { ownerId: parseInt(id) },
-
-          // Caso B: Soy colaborador (Mágia de Prisma ✨)
-          {
-            collaborators: {
-              some: {
-                userId: parseInt(id), // "Donde ALGUNO de los colaboradores sea YO"
-              },
-            },
-          },
-        ],
-      },
+      where: whereClause,
       include: {
-        owner: { select: { username: true } }, // Para saber de quién es la nota compartida
+        owner: { select: { username: true } },
         collaborators: {
-          // Opcional: Para saber mi permiso en esa nota
           where: { userId: id },
           include: { permissionLevel: true },
         },
       },
-      orderBy: {
-        createdAt: "desc",
-      },
+      orderBy: { createdAt: "desc" },
     });
 
     return notes;
+  }
+
+  async toggleArchive(userId, noteId) {
+    // Buscamos la nota
+    const note = await this.findNote(userId, noteId);
+
+    // Invertimos el valor actual
+    const updatedNote = await prisma.note.update({
+      where: { id: parseInt(noteId) },
+      data: {
+        isArchived: !note.isArchived,
+      },
+    });
+
+    return {
+      id: updatedNote.id,
+      title: updatedNote.title,
+      isArchived: updatedNote.isArchived,
+      message: updatedNote.isArchived ? "Nota archivada" : "Nota desarchivada",
+    };
   }
 
   async findNote(userId, noteId) {

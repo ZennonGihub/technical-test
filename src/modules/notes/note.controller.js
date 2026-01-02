@@ -10,11 +10,33 @@ export const create = async (req, res, next) => {
     next(error);
   }
 };
-
 export const findAll = async (req, res, next) => {
   try {
-    const note = await service.findAll(req.user.id);
-    res.status(200).json(note);
+    const { search, isArchived } = req.query;
+
+    const filters = {};
+
+    if (search) {
+      filters.search = search;
+    }
+
+    if (isArchived === "true") filters.isArchived = true;
+    if (isArchived === "false") filters.isArchived = false;
+
+    const notes = await service.findAll(req.user.id, filters);
+    res.status(200).json(notes);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const toggleArchive = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const userId = req.user.id;
+
+    const result = await service.toggleArchive(userId, id);
+    res.status(200).json(result);
   } catch (error) {
     next(error);
   }
