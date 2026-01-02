@@ -24,7 +24,7 @@ router.patch(
 );
 
 router.delete(
-  "/remove",
+  "/remove/:id",
   passport.authenticate("jwt", { session: false }),
   remove
 );

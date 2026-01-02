@@ -1,6 +1,6 @@
-import app from "./app.js";
+import app from "../src/app.js";
 import "dotenv/config";
-import { prisma } from "./db/prisma.js";
+import { prisma } from "../src/db/prisma.js";
 
 const prismaConnect = async () => {
   try {

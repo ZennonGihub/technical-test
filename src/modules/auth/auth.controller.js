@@ -40,7 +40,7 @@ export const update = async (req, res, next) => {
 
 export const remove = async (req, res, next) => {
   try {
-    const user = await service.delete(req.user.id);
+    const user = await service.delete(req.params.id);
     res.status(201).json(user);
   } catch (error) {
     next(error);

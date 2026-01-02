@@ -49,12 +49,12 @@ export const updatePermission = async (req, res, next) => {
 
 export const removeCollaborator = async (req, res, next) => {
   try {
-    const userId = req.user.id;
-    const { noteId, collaboratorId } = req.params;
+    const ownerId = req.user.id;
+    const { noteId, userId } = req.params;
     const collaborator = await service.removeCollaborator(
-      userId,
+      ownerId,
       noteId,
-      collaboratorId
+      userId
     );
     res.status(201).json(collaborator);
   } catch (error) {

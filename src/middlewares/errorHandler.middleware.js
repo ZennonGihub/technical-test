@@ -1,4 +1,5 @@
-import { ValidationError } from "joi";
+import Joi from "joi";
+const { ValidationError } = Joi;
 
 export function logErrors(err, req, res, next) {
   console.error(err);

@@ -18,7 +18,7 @@
     "seed": "node prisma/seeders/seed.js"
   },
   "scripts": {
-    "start": "node --watch src/index.js",
+    "start": "node --watch api/index.js",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
   },

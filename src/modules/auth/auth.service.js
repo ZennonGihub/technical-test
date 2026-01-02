@@ -114,9 +114,9 @@ export class AuthService {
   }
 
   async delete(userId) {
-    await this.findOne(userId);
+    await this.findOne(parseInt(userId));
     await prisma.auth.delete({
-      where: { userId: userId },
+      where: { userId: parseInt(userId) },
     });
 
     return { message: `User con id ${userId} fue eliminado` };
