@@ -12,9 +12,27 @@ export class NotesService {
   }
 
   async findAll(userId) {
+    const id = parseInt(userId);
+
     const notes = await prisma.note.findMany({
       where: {
-        ownerId: userId,
+        OR: [
+          { ownerId: parseInt(id) },
+          {
+            collaborators: {
+              some: {
+                userId: parseInt(id),
+              },
+            },
+          },
+        ],
+      },
+      include: {
+        owner: { select: { username: true } },
+        collaborators: {
+          where: { userId: id },
+          include: { permissionLevel: true },
+        },
       },
       orderBy: {
         createdAt: "desc",
