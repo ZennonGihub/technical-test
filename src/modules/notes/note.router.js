@@ -1,3 +1,5 @@
+import express from "express";
+import passport from "../../utils/index.passport.js";
 import {
   findAll,
   create,
@@ -6,23 +8,37 @@ import {
   findOne,
   toggleArchive,
 } from "./note.controller.js";
-import express from "express";
-import passport from "../../utils/index.passport.js";
+import validatorHandler from "../../middlewares/validatorHandler.middleware.js";
+import {
+  createNoteSchema,
+  updateNoteSchema,
+  getNoteSchema,
+  queryNoteSchema,
+} from "../../schemas/note.schema.js";
 
 const router = express.Router();
 
 router.use(passport.authenticate("jwt", { session: false }));
 
-router.post("/", create);
+router.post("/", validatorHandler(createNoteSchema, "body"), create);
 
-router.get("/", findAll);
+router.get("/", validatorHandler(queryNoteSchema, "query"), findAll);
 
-router.patch("/:id/archive", toggleArchive);
+router.patch(
+  "/:id/archive",
+  validatorHandler(getNoteSchema, "params"),
+  toggleArchive
+);
 
-router.get("/:id", findOne);
+router.get("/:id", validatorHandler(getNoteSchema, "params"), findOne);
 
-router.patch("/:id", update);
+router.patch(
+  "/:id",
+  validatorHandler(getNoteSchema, "params"),
+  validatorHandler(updateNoteSchema, "body"),
+  update
+);
 
-router.delete("/:id", remove);
+router.delete("/:id", validatorHandler(getNoteSchema, "params"), remove);
 
 export default router;
