@@ -1,6 +1,8 @@
-# Technical Test 
+# Technical Test
 
-Esta es un api desarrollada con NodeJs, Express, PostgreSQL y Prisma orm
+Esta es un api desarrollada con NodeJs, Express, PostgreSQL y Prisma orm.
+
+Tambien se utilizo neon para desplegar la base de datos, y vercel para desplegar la api. Url de la api: https://technical-test-git-deploy-zennons-projects-6417a15e.vercel.app/
 
 ## Correr el proyecto
 
@@ -16,6 +18,7 @@ Esta es un api desarrollada con NodeJs, Express, PostgreSQL y Prisma orm
 ```bash
     npm install
 ```
+
 3. **Configurar las variables de entorno en relacion al .env-example**
 
 4. **Ejecutar las migraciones de la base de datos**
@@ -40,7 +43,7 @@ npx prisma db seed
 
 `npm run test:coverage`: Genera un reporte detallado de cobertura de código.
 
-## Tests 
+## Tests
 
 Se han implementado tests de integracion y unitarios.
 
@@ -75,6 +78,7 @@ Se incluyo una coleccion de insomnia el cual se llama "InsomniaCollection" para 
 -Abra insomnia
 -Seleccione el boton de "import"
 -Seleccione file, y cargue el archivo mencionado anteriormente
--Esto importara todos los endpoints necesarios para poder probar la api.
+-Esto importara todos los endpoints necesarios para poder probar la api
+-Ahora debe de seleccionar el entorno, como la api esta desplegada, esta el entorno local, y el deploy para probar.
 
-Ahora solo queda seguir los pasos anteriores para configurar y levantar el proyecto. 
+Ahora solo queda seguir los pasos anteriores para configurar y levantar el proyecto.

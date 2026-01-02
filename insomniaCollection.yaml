@@ -15,12 +15,12 @@ collection:
       sortKey: -1767288815847
       description: ""
     children:
-      - url: http://localhost:3000/api/v1/users/lista
+      - url: "{{ base_url }}/users/lista"
         name: Lista Usuarios
         meta:
           id: req_3e2f04a0263847879275b43c584accb4
           created: 1767291116735
-          modified: 1767385367818
+          modified: 1767389766546
           isPrivate: false
           description: ""
           sortKey: -1767292842498
@@ -46,12 +46,12 @@ collection:
       sortKey: -1767288820495
       description: ""
     children:
-      - url: http://localhost:3000/api/v1/auth/register
+      - url: "{{ base_url }}/auth/register"
         name: Register
         meta:
           id: req_1956ff1e1c6146fa95850fa4348fa235
           created: 1767288828604
-          modified: 1767385901891
+          modified: 1767389794536
           isPrivate: false
           description: ""
           sortKey: -1767291100028
@@ -80,12 +80,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/auth/login
+      - url: "{{ base_url }}/auth/login"
         name: Login
         meta:
           id: req_8f10a772d85149bcb9e587f8c9233bed
           created: 1767288849787
-          modified: 1767385669622
+          modified: 1767389789471
           isPrivate: false
           description: ""
           sortKey: -1767291099928
@@ -115,12 +115,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/auth/remove/8
+      - url: "{{ base_url }}/auth/remove/8"
         name: Delete
         meta:
           id: req_6000fe6a2b98453c81c702fe4825c94d
           created: 1767288853897
-          modified: 1767385602530
+          modified: 1767389800680
           isPrivate: false
           description: ""
           sortKey: -1767291100128
@@ -141,12 +141,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/auth/update
+      - url: "{{ base_url }}/auth/update"
         name: Update
         meta:
           id: req_c1e449ab10334e00a92cb2c6e9c8c987
           created: 1767288857056
-          modified: 1767385476603
+          modified: 1767389783202
           isPrivate: false
           description: ""
           sortKey: -1767291099828
@@ -183,12 +183,12 @@ collection:
       sortKey: -1767288826021
       description: ""
     children:
-      - url: http://localhost:3000/api/v1/notes/
+      - url: "{{ base_url }}/notes/"
         name: Find Notes
         meta:
           id: req_d4d0df5ff44947a0bb295406b84f44c6
           created: 1767292847089
-          modified: 1767385694464
+          modified: 1767389850954
           isPrivate: false
           description: ""
           sortKey: -1767293411175
@@ -209,12 +209,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/notes/
+      - url: "{{ base_url }}/notes/"
         name: Create
         meta:
           id: req_55fc8ad3fd9a48958f261bfac9e230d2
           created: 1767293048103
-          modified: 1767385760675
+          modified: 1767389845870
           isPrivate: false
           description: ""
           sortKey: -1767293411275
@@ -244,12 +244,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/notes/7
+      - url: "{{ base_url }}/notes/7"
         name: Find Note
         meta:
           id: req_91b0b3819c064643be031c0be23bde49
           created: 1767294752648
-          modified: 1767385705740
+          modified: 1767389840899
           isPrivate: false
           description: ""
           sortKey: -1767293411375
@@ -270,12 +270,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/notes/7
+      - url: "{{ base_url }}/notes/7"
         name: Update
         meta:
           id: req_a39379e95d744330971e7b4236bb20b6
           created: 1767295135517
-          modified: 1767385718261
+          modified: 1767389833430
           isPrivate: false
           description: ""
           sortKey: -1767293411475
@@ -305,12 +305,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/notes/7
+      - url: "{{ base_url }}/notes/7"
         name: Delete
         meta:
           id: req_3a0c5ccb654e42d1b346fa31adc72a2a
           created: 1767295156279
-          modified: 1767385727237
+          modified: 1767389827924
           isPrivate: false
           description: ""
           sortKey: -1767293411575
@@ -331,12 +331,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/notes/8/archive/
+      - url: "{{ base_url }}/notes/8/archive/"
         name: Update archive
         meta:
           id: req_46696fd66ade49518be63cc875443e08
           created: 1767365354410
-          modified: 1767385794445
+          modified: 1767389811932
           isPrivate: false
           description: ""
           sortKey: -1767293411875
@@ -357,12 +357,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/notes?isArchived=true
+      - url: "{{ base_url }}/notes?isArchived=true"
         name: Find Notes
         meta:
           id: req_338dc61912474b2f9bb44b0b9249c21c
           created: 1767365509850
-          modified: 1767385733472
+          modified: 1767389822938
           isPrivate: false
           description: ""
           sortKey: -1767293411675
@@ -383,12 +383,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/notes?search=prueba
+      - url: "{{ base_url }}/notes?search=prueba"
         name: Find Notes
         meta:
           id: req_e97caea849de49bdb94ca347ec8d60ad
           created: 1767365598778
-          modified: 1767385740588
+          modified: 1767389817998
           isPrivate: false
           description: ""
           sortKey: -1767293411775
@@ -417,12 +417,12 @@ collection:
       sortKey: -1767365198671
       description: ""
     children:
-      - url: http://localhost:3000/api/v1/collaboration/notes/8
+      - url: "{{ base_url }}/collaboration/notes/8"
         name: Add Collaborator
         meta:
           id: req_9f0d5bf994a640b983e4a06274aea0ba
           created: 1767307354365
-          modified: 1767385908828
+          modified: 1767389871545
           isPrivate: false
           description: ""
           sortKey: -1767365204413
@@ -452,12 +452,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/api/v1/collaboration/notes/8/user/10
+      - url: "{{ base_url }}/collaboration/notes/8/user/10"
         name: Remove collaborator
         meta:
           id: req_8881dbde635d4a36852e9f05eeca4abb
           created: 1767308010195
-          modified: 1767386022043
+          modified: 1767389866626
           isPrivate: false
           description: ""
           sortKey: -1767365204513
@@ -494,5 +494,26 @@ environments:
   meta:
     id: env_2e838fc29b55de37d49806bacb7175b2cfc4c985
     created: 1767288809842
-    modified: 1767288809842
+    modified: 1767389443382
     isPrivate: false
+  data:
+    base_url: https://technical-test-exyyzfgsx-zennons-projects-6417a15e.vercel.app/api/v1
+  subEnvironments:
+    - name: Deploy
+      meta:
+        id: env_dbc062d8ea734f79a30934eae6c7ccdb
+        created: 1767389473359
+        modified: 1767389652165
+        isPrivate: false
+        sortKey: 1767389473359
+      data:
+        base_url: https://technical-test-exyyzfgsx-zennons-projects-6417a15e.vercel.app/api/v1
+    - name: local
+      meta:
+        id: env_5f1ad1f087d94beea8f6db6464dcfa05
+        created: 1767389671086
+        modified: 1767389691752
+        isPrivate: false
+        sortKey: 1767389671086
+      data:
+        base_url: http://localhost:3000/api/v1
