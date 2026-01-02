@@ -1,4 +1,6 @@
 import { Strategy, ExtractJwt } from "passport-jwt";
+import dotenv from "dotenv";
+dotenv.config();
 import { config } from "../../../config.js";
 import { AuthService } from "../../modules/auth/auth.service.js";
 
@@ -6,7 +8,7 @@ const service = new AuthService();
 
 const options = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: config.secret,
+  secretOrKey: process.env.JWT_SECRET,
 };
 
 export const jwtStrategy = new Strategy(options, async (payload, done) => {
