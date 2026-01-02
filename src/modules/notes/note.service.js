@@ -26,8 +26,6 @@ export class NotesService {
     };
 
     // Filtro del archivo
-    // Si filters.isArchived viene definido, lo agregamos.
-    // Si es undefined, Prisma traerá a ambos
     if (isArchived !== undefined) {
       whereClause.AND.push({
         isArchived: isArchived,
